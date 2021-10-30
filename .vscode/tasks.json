@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "cov:watch",
+      "group": "build",
+      "label": "Begin Test Coverage",
+      "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "docs",
+      "group": "build",
+      "label": "Generate Docs"
+    },
+    {
+      "type": "npm",
+      "script": "examples",
+      "label": "Browse Examples",
+      "isBackground": true
+    }
+  ]
+}

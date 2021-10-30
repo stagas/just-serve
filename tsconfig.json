@@ -1,0 +1,15 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "target": "es2021",
+    "strict": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "auto-run-command.rules": [
+    {
+      "condition": [
+        "hasFile: coverage/lcov.info"
+      ],
+      "command": "coverage-gutters.watchCoverageAndVisibleEditors",
+      "message": "Coverage Watch"
+    }
+  ],
+  "todo-tree.tree.scanMode": "workspace only"
+}

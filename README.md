@@ -1,111 +1,28 @@
-# My TypeScript Module
+# just-serve
 
-## Table of contents
+cli tool to just serve a directory using https
 
-### Functions
+<img src="just-serve.png" width="350">
 
-- [add](README.md#add)
-- [div](README.md#div)
-- [mul](README.md#mul)
-- [sub](README.md#sub)
+## Installation
 
-## Functions
+```sh
+$ npm install just-serve -g
+```
 
-### add
+## Usage
 
-▸ **add**(`a`, `b`): `number`
+```sh
+# serves cwd
+just-serve
 
-Adds two numbers.
+# serve a given path
+just-serve my/path
 
-#### Parameters
+# serve with given host/port
+HOST=localhost PORT=7777 just-serve
+```
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | `number` | The first number |
-| `b` | `number` | The second number |
+## License
 
-#### Returns
-
-`number`
-
-The sum of the two numbers
-
-#### Defined in
-
-[index.ts:8](https://github.com/stagas/typescript-module-template/blob/main/src/index.ts#L8)
-
-___
-
-### div
-
-▸ **div**(`a`, `b`): `number`
-
-Divides two numbers.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | `number` | The first number |
-| `b` | `number` | The second number |
-
-#### Returns
-
-`number`
-
-The division of the two numbers
-
-#### Defined in
-
-[index.ts:30](https://github.com/stagas/typescript-module-template/blob/main/src/index.ts#L30)
-
-___
-
-### mul
-
-▸ **mul**(`a`, `b`): `number`
-
-Multiplies two numbers.
-TODO: sample todo add test coverage
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | `number` | The first number |
-| `b` | `number` | The second number |
-
-#### Returns
-
-`number`
-
-The product of the two numbers
-
-#### Defined in
-
-[index.ts:43](https://github.com/stagas/typescript-module-template/blob/main/src/index.ts#L43)
-
-___
-
-### sub
-
-▸ **sub**(`a`, `b`): `number`
-
-Subtracts two numbers.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | `number` | The first number |
-| `b` | `number` | The second number |
-
-#### Returns
-
-`number`
-
-The difference of the two numbers
-
-#### Defined in
-
-[index.ts:19](https://github.com/stagas/typescript-module-template/blob/main/src/index.ts#L19)
+MIT

@@ -3,22 +3,28 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "cov:watch",
+      "script": "build",
       "group": "build",
-      "label": "Begin Test Coverage",
+      "label": "Build",
       "isBackground": true
     },
     {
       "type": "npm",
-      "script": "docs",
-      "group": "build",
-      "label": "Generate Docs"
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "Dev"
     },
     {
       "type": "npm",
-      "script": "examples",
-      "label": "Browse Examples",
-      "isBackground": true
+      "script": "test:help",
+      "problemMatcher": [],
+      "label": "Test Help"
+    },
+    {
+      "type": "npm",
+      "script": "test:install",
+      "problemMatcher": [],
+      "label": "Test Install"
     }
   ]
 }

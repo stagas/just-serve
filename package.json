@@ -1,6 +1,6 @@
 {
   "name": "just-serve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cli tool to just serve a directory using https",
   "type": "module",
   "source": "src/index.ts",

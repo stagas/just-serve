@@ -34,9 +34,9 @@ ${chalk.bold('Examples:')}
   ${chalk.grey('# serve with given host/port')}
   HOST=localhost PORT=7777 just-serve
 
-${chalk.grey.bold(`Add this to`)} ${chalk.bold(
-    'auto-reload'
-  )} ${chalk.grey.bold(`when files change:`)}
+${chalk.grey.bold(`Add this to enable`)} ${chalk.bold(
+    'live-reload'
+  )} ${chalk.grey.bold(`for when files change:`)}
   <body>
     <script src="reload.js"></script>
   </body>
@@ -80,7 +80,7 @@ const server = https.createServer(keys, (req, res) => {
     } else if (req.url.endsWith('/reload.js')) {
       return res.end(`
         es = new EventSource('/onchange');
-        es.onopen = () => console.warn('auto-reload started')
+        es.onopen = () => console.warn('live-reload started')
         es.onmessage = () => es.onmessage = () => location = location;
       `)
     }

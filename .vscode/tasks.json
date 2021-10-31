@@ -18,7 +18,8 @@
       "type": "npm",
       "script": "test:help",
       "problemMatcher": [],
-      "label": "Test Help"
+      "label": "Test Help",
+      "isBackground": true
     },
     {
       "type": "npm",

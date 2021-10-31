@@ -16,16 +16,20 @@
       }
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "npm run watch & npm run test:serve",
     "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "rimraf dist && parcel build",
     "test:install": "npm uninstall -g && npm install -g",
     "test:serve": "nodemon dist/index.js example",
     "test:help": "nodemon dist/index.js -- --help",
     "lint": "eslint **/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "fmt": "prettier --write **/*.ts",
+    "prepack": "npm run build",
     "prepare": "husky install"
   },
   "husky": {

@@ -49,6 +49,7 @@
     "live-server-https": "0.0.2",
     "open": "^8.4.0",
     "qrcode-terminal": "^0.12.0",
+    "read-dotenv": "^1.0.0",
     "running-at": "^0.3.22",
     "sse": "^0.0.8"
   },

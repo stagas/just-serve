@@ -7,11 +7,12 @@
     "src/**/*.spec.ts"
   ],
   "compilerOptions": {
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "isolatedModules": true,
     "module": "esnext",
-    "target": "es2021",
+    "target": "esnext",
     "strict": true
   }
 }

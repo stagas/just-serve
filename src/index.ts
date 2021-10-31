@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import os from 'os'
-import { readFileSync as read } from 'fs'
 import { join } from 'path'
 import https from 'https'
 import SSE from 'sse'
@@ -13,6 +12,7 @@ import runningAt from 'running-at'
 import qrcode from 'qrcode-terminal'
 import chokidar from 'chokidar'
 import chalk from 'chalk'
+import dotenv from 'read-dotenv'
 
 if (process.argv.find(arg => ['--version', '-v'].includes(arg))) {
   console.log((await import('../package')).version)
@@ -46,39 +46,13 @@ ${chalk.grey.bold(`Add this to`)} ${chalk.bold(
 
 const root = join(process.cwd(), process.argv[2] ?? '')
 
-let env = {
-  PORT: 3000,
-  HOST: '0.0.0.0'
-}
-try {
-  const parse = (s: string) => {
-    try {
-      return JSON.parse(s)
-    } catch {
-      return s
-    }
-  }
-
-  const entries = Object.entries(env) as string[][]
-
-  try {
-    entries.push(
-      ...(read(join(root, '.env'), 'utf-8').split(/\r\n|\n/g) as string[])
-        .filter(Boolean)
-        .filter(line => !line.startsWith('#'))
-        .map(line => line.split('='))
-    )
-  } catch {}
-
-  env = Object.fromEntries(
-    entries.map(([key, ...value]) => [
-      key,
-      parse(process.env[key] ?? value.join('='))
-    ])
-  ) as typeof env & Record<string, string>
-} catch (e) {
-  console.error(e)
-}
+const env = dotenv(
+  {
+    PORT: 3000,
+    HOST: '0.0.0.0'
+  },
+  root
+)
 
 const serveHandler = extatic({
   root,

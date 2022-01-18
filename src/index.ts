@@ -49,7 +49,8 @@ const root = join(process.cwd(), process.argv[2] ?? '')
 const env = dotenv(
   {
     PORT: 3000,
-    HOST: '0.0.0.0'
+    HOST: '0.0.0.0',
+    WATCH: root
   },
   root
 )
@@ -98,22 +99,24 @@ server.listen(env.PORT, env.HOST, () => {
     print('SSE /onchange')
   })
 
-  const fileWatcher = chokidar.watch([join(root, '**/*')], {
-    awaitWriteFinish: {
-      stabilityThreshold: 40,
-      pollInterval: 10
-    }
-  })
-  fileWatcher.on('change', () => {
-    clients = clients.filter(client => {
-      try {
-        client.send('change')
-        return true
-      } catch {
-        return false
+  if (env.WATCH !== '-') {
+    const fileWatcher = chokidar.watch([join(env.WATCH, '**/*')], {
+      awaitWriteFinish: {
+        stabilityThreshold: 40,
+        pollInterval: 10
       }
     })
-  })
+    fileWatcher.on('change', () => {
+      clients = clients.filter(client => {
+        try {
+          client.send('change')
+          return true
+        } catch {
+          return false
+        }
+      })
+    })
+  }
 
   const addr = `https://${runningAt().ip}:${env.PORT}/`
   console.log({ ...env, root: root.replace(os.homedir(), '~'), addr })

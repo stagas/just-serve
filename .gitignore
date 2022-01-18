@@ -3,3 +3,4 @@ dist
 node_modules
 .husky
 .parcel-cache
+package-lock.json
